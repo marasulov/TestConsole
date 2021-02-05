@@ -1,0 +1,6 @@
+C:\Users\yusufzhon.marasulov\source\repos\TestConsole\BQCreator.Data\bin\Debug\BQCreator.Data.dll
+C:\Users\yusufzhon.marasulov\source\repos\TestConsole\BQCreator.Data\bin\Debug\BQCreator.Data.pdb
+C:\Users\yusufzhon.marasulov\source\repos\TestConsole\BQCreator.Data\obj\Debug\BQCreator.Data.csprojAssemblyReference.cache
+C:\Users\yusufzhon.marasulov\source\repos\TestConsole\BQCreator.Data\obj\Debug\BQCreator.Data.csproj.CoreCompileInputs.cache
+C:\Users\yusufzhon.marasulov\source\repos\TestConsole\BQCreator.Data\obj\Debug\BQCreator.Data.dll
+C:\Users\yusufzhon.marasulov\source\repos\TestConsole\BQCreator.Data\obj\Debug\BQCreator.Data.pdb
