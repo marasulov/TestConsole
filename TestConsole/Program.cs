@@ -1,19 +1,26 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading;
+using BQCreator.BL;
+using BQCreator.BL.Models;
 
 namespace TestConsole
 {
     public interface IOrderRepository
     {
         void Save(string strText);
+        string Props { get; set; }
     }
     public class OrderRepository : IOrderRepository
     {
+        public string Props { get; set; }
+
         public void Save(string strText)
         {
             Console.WriteLine(strText);
         }
+        
+        
     }
     public class OrderManager
     {
@@ -28,20 +35,91 @@ namespace TestConsole
         {
             _orderRepository.Save(filename);
         }
+
+        public void GetProps()
+        {
+            
+        }
+    }
+    
+    
+    // абстрактный класс строительной компании
+    abstract class Developer
+    {
+        public string Name { get; set; }
+ 
+        public Developer (string n)
+        { 
+            Name = n; 
+        }
+        // фабричный метод
+        abstract public House Create();
+    }
+// строит панельные дома
+    class PanelDeveloper : Developer
+    {
+        public PanelDeveloper(string n) : base(n)
+        { }
+ 
+        public override House Create()
+        {
+            return new PanelHouse();
+        }
+    }
+// строит деревянные дома
+    class WoodDeveloper : Developer
+    { 
+        public WoodDeveloper(string n) : base(n)
+        { }
+ 
+        public override House Create()
+        {
+            return new WoodHouse();
+        }
+    }
+ 
+    abstract class House
+    { }
+ 
+    class PanelHouse : House 
+    { 
+        public PanelHouse()
+        {
+            Console.WriteLine("Панельный дом построен");
+        }
+    }
+    class WoodHouse : House
+    { 
+        public WoodHouse()
+        {
+            Console.WriteLine("Деревянный дом построен");
+        }
     }
     
     internal class Program
     {
         public static void Main(string[] args)
         {
+            FileModel fileModel= new FileModel();
+            Developer dev = new PanelDeveloper("ООО КирпичСтрой");
+            House house2 = dev.Create();
+         
+            dev = new WoodDeveloper("Частный застройщик");
+            House house = dev.Create();
+ 
+            Console.ReadLine();
+           
+            //IFileService fileService = new ExcelManager(@"C:\Users\yusufzhon.marasulov\Desktop\АБК_тест_HVA_R1.xlsx");
+            IFileService fileService = new ExcelManager(@"D:\docs\Desktop\ВОР\new\PipingMTO_v2.9-1234321-0021.xlsx");
+            
+            FileManager fm = new FileManager(fileService);
+            fm.Open();
+            
+
             IOrderRepository orderRepository = new OrderRepository();
             OrderManager orderManager = new OrderManager(orderRepository);
             orderManager.Save("saving file");
-            
-            IBaseFactory baseFactory = new ProjectOne(SkillSets.windows, SkillSets.silverlight);
-            Console.WriteLine("Project One" + Environment.NewLine);
-            //Console.WriteLine(baseFactory.GetDotNetTeam().GetTeam());
-            Console.WriteLine(baseFactory.GetMobileTeam().GetMobileTeam());
+
         }
     }
 

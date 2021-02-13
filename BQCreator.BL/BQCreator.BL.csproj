@@ -32,13 +32,38 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="EPPlus, Version=5.5.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
+          <HintPath>..\packages\EPPlus.5.5.3\lib\net45\EPPlus.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.3.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+          <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.3.6\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="mscorlib" />
+        <Reference Include="PresentationCore" />
         <Reference Include="System" />
+        <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.ComponentModel.DataAnnotations" />
+        <Reference Include="System.configuration" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.Security" />
+        <Reference Include="System.Threading.Tasks" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="FileService.cs" />
+        <Compile Include="FileManager.cs" />
+        <Compile Include="IFileService.cs" />
         <Compile Include="IScriptGenerator.cs" />
+        <Compile Include="Models\ExcelManager.cs" />
+        <Compile Include="Models\ExcelModel.cs" />
+        <Compile Include="Models\FileModel.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="ScriptGenerator.cs" />
     </ItemGroup>
@@ -47,6 +72,9 @@
         <Project>{7f9e5d56-5b9e-4fec-ad3e-54b842242716}</Project>
         <Name>BQCreator.Data</Name>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
